@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAI studio · Architecture & Design</title>
+    <!-- 引用外部 CSS -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <!-- 添加 page-wrapper 以支持移动端侧滑菜单 -->
+    <div id="page-wrapper">
+
+        <div class="container">
+            <!-- Header -->
+            <header id="header">
+                <div class="brand">
+                    <h1><a href="index.html" id="logo">HAI studio</a></h1>
+                </div>
+                
+                <div class="top-nav">
+                    <!-- 添加 id="nav" 让 main.js 识别并生成手机菜单 -->
+                    <nav id="nav" class="nav-links">
+                        <ul>
+                            <li class="has-dropdown">
+                                <a href="#">Projects ▾</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="onecolumn.html">Melbourne</a></li>
+                                    <li><a href="#">Sydney</a></li>
+                                    <li><a href="#">Brisbane</a></li>
+                                    <li><a href="#">Gold Coast</a></li>
+                                    <li><a href="#">Perth</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Studio ▾</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Team</a></li>
+                                </ul>
+                            </li>
+                            <!-- 联系我们 -->
+                            <li><a href="mailto:Alex@haistudio.com.au">Contact</a></li> 
+                        </ul>
+                    </nav>
+                    
+                    <div class="search-icon">
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Intro Text -->
+            <section class="intro-text">
+                HAI studio is a design practice based in Australia and New Zealand. <br>
+                We explore the silence in architecture and the narrative of space.
+            </section>
+
+            <!-- Projects List -->
+            <div class="project-list">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <a href="onecolumn.html" class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1493375366763-3ed5e0e6d8ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
+                    </a>
+                    <div class="meta-info">
+                        <span class="designers">HAI studio</span>
+                        <span class="project-title">Concrete House in the Forest</span>
+                        <span class="location">KYOTO, JAPAN · 2024</span>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <a href="#" class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Project 2">
+                    </a>
+                    <div class="meta-info">
+                        <span class="designers">HAI studio</span>
+                        <span class="project-title">Urban Art Gallery Renovation</span>
+                        <span class="location">SHANGHAI, CHINA · 2023</span>
+                    </div>
+                </article>
+
+             <!-- Project 3 -->
+            <article class="project-card">
+                <a href="#" class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Project 3">
+                </a>
+                <div class="meta-info">
+                    <span class="designers">HAI studio</span>
+                    <span class="project-title">Minimalist White Pavilion</span>
+                    <span class="location">COPENHAGEN, DENMARK · 2025</span>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card">
+                <a href="#" class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1470723710355-95304d8aece4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Project 4">
+                </a>
+                <div class="meta-info">
+                    <span class="designers">HAI studio</span>
+                    <span class="project-title">Lakeside Cabin</span>
+                    <span class="location">HELSINKI, FINLAND · 2022</span>
+                </div>
+            </article>
+
+        </div>
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <h5>HAI studio</h5>
+                        <p>123 Architecture Ave, Design District<br>
+                        <a href="mailto:Alex@haistudio.com.au">contact@haistudio.com.au</a></p>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Social</h5>
+                        <p>
+                            <a href="https://www.instagram.com" target="_blank">Instagram ↗</a><br>
+                            <a href="https://www.linkedin.com" target="_blank">LinkedIn ↗</a><br>
+                            <a href="https://weixin.qq.com" target="_blank">WeChat ↗</a><br>
+                        </p>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; color: #444;">
+                    &copy; 2025 HAI studio.
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- 引用 JS 文件 (顺序很重要) -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

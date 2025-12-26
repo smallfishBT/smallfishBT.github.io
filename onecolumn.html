@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete House · HAI studio</title>
+    <style>
+        /* --- 基础重置 (与主页保持一致) --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 14px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: #ffffff; transition: opacity 0.2s ease; }
+        a:hover { opacity: 0.7; }
+        ul { list-style: none; }
+
+        /* --- 布局容器 --- */
+        .container {
+            width: 100%;
+            padding: 0 20px;
+            max-width: 900px; /* 限制最大宽度，保持阅读舒适度 */
+            margin: 0 auto;
+        }
+
+        /* --- Header (复用主页样式) --- */
+        header {
+            padding-top: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 100;
+        }
+        .brand h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 20px; }
+        .top-nav { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; }
+        .nav-links > ul { display: flex; gap: 30px; }
+        .nav-links li { position: relative; padding-bottom: 10px; }
+        .nav-links a { font-weight: 500; font-size: 14px; display: block; }
+        
+        /* 下拉菜单样式 */
+        .dropdown-menu {
+            display: none; position: absolute; top: 100%; left: 0;
+            background-color: #000000; border: 1px solid #333;
+            min-width: 160px; padding: 10px 0; z-index: 1000; margin-top: -5px;
+            flex-direction: column;
+        }
+        .nav-links li:hover .dropdown-menu { display: flex; }
+        .dropdown-menu a { padding: 10px 15px; font-size: 13px; color: #ccc; white-space: nowrap; background: #000; }
+        .dropdown-menu a:hover { background-color: #1a1a1a; color: #fff; }
+        .search-icon a { font-size: 13px; color: #888; }
+
+        /* --- 项目详情页特有样式 --- */
+
+        /* 标题区域 */
+        .project-header {
+            margin-bottom: 40px;
+        }
+        .project-title-large {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+        .project-subtitle {
+            font-size: 14px;
+            color: #888;
+            font-family: monospace;
+        }
+
+        /* 顶部大图 (Hero Image) */
+        .hero-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 60px;
+            display: block;
+        }
+
+        /* 信息与文本分栏布局 */
+        .project-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-bottom: 100px;
+            border-bottom: 1px solid #222; /* 分割线 */
+            padding-bottom: 60px;
+        }
+
+        /* 左侧：项目数据 (Credits) */
+        .project-credits {
+            flex: 1;
+            min-width: 200px;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .credit-item {
+            margin-bottom: 20px;
+        }
+        .credit-label {
+            display: block;
+            color: #666;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 右侧：项目说明 (Description) */
+        .project-description {
+            flex: 2;
+            min-width: 300px;
+        }
+        .project-description p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        /* 图片画廊 (Gallery) */
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 60px; /* 图片之间的距离 */
+            display: block;
+        }
+        .caption {
+            margin-top: -50px; /* 拉近与图片的距离 */
+            margin-bottom: 60px;
+            font-size: 12px;
+            color: #666;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* 底部项目导航 */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            margin-bottom: 40px;
+        }
+        .nav-item span {
+            display: block;
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .nav-item a {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Footer 样式 */
+        footer { border-top: 1px solid #333; padding: 60px 0; font-size: 12px; color: #888; }
+        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-col h5 { color: #fff; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col a { color: #888; border-bottom: 1px solid transparent; }
+        .footer-col a:hover { color: #fff; border-bottom: 1px solid #fff; }
+        .newsletter-box { background: #000; border: 1px solid #444; padding: 8px 10px; font-size: 12px; color: #fff; width: 200px; outline: none; }
+        .newsletter-box:focus { border-color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header (与主页一致) -->
+        <header>
+            <div class="brand">
+                <h1><a href="index.html">HAI studio</a></h1>
+            </div>
+            
+            
+        <!-- Main Content -->
+        <main>
+            <!-- 标题块 -->
+            <div class="project-header">
+                <h2 class="project-title-large">Concrete House in the Forest</h2>
+                <div class="project-subtitle">KYOTO, JAPAN · 2024</div>
+            </div>
+
+            <!-- 首屏大图 -->
+            <img src="https://images.unsplash.com/photo-1518005052357-e98715009e97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Hero Image" class="hero-image">
+
+            <!-- 项目介绍与数据 (分栏) -->
+            <div class="project-body">
+                <!-- 左侧数据 -->
+                <aside class="project-credits">
+                    <div class="credit-item">
+                        <span class="credit-label">Location</span>
+                        Kyoto, Sakyo Ward
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-label">Area</span>
+                        240 sqm
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-label">Year</span>
+                        2022 - 2024
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-label">Team</span>
+                        Hai Zhang, Yuka Sato
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-label">Photography</span>
+                        Studio Masters
+                    </div>
+                </aside>
+
+                <!-- 右侧文本 -->
+                <article class="project-description">
+                    <p>
+                        Located in the quiet woodlands north of Kyoto, the Concrete House serves as a retreat from the dense urban fabric. The project explores the duality of heaviness and lightness, using raw concrete to ground the structure while large glass openings invite the surrounding nature inside.
+                    </p>
+                    <p>
+                        The plan is organized around a central courtyard that acts as a light well, diffusing soft daylight into the living spaces throughout the day. Materiality was kept to a minimum: exposed concrete, local cedar wood, and black steel details create a monochromatic palette that changes with the seasons outside.
+                    </p>
+                    <p>
+                        By elevating the main living floor, we preserved the existing topography of the site, allowing the forest floor to continue uninterrupted beneath the cantilevered volumes.
+                    </p>
+                </article>
+            </div>
+
+            <!-- 图片展示流 -->
+            <div class="project-gallery">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Interior View" class="gallery-image">
+                <div class="caption">Living Room View</div>
+
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Detail View" class="gallery-image">
+                
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Exterior Night View" class="gallery-image">
+                <div class="caption">Exterior at Dusk</div>
+                
+                <!-- 图纸展示 (示例图) -->
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Floor Plan" class="gallery-image" style="filter: invert(1);">
+                <div class="caption">Ground Floor Plan</div>
+            </div>
+
+            <!-- 底部项目切换 -->
+            <div class="project-nav">
+                <div class="nav-item">
+                    <span>Previous Project</span>
+                    <a href="#">&larr; Urban Gallery</a>
+                </div>
+                <div class="nav-item" style="text-align: right;">
+                    <span>Next Project</span>
+                    <a href="#">Lakeside Cabin &rarr;</a>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer (与主页一致) -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h5>HAI studio</h5>
+                    <p>
+                        123 Architecture Ave<br>
+                        Design District<br>
+                        <a href="mailto:contact@haistudio.com" style="color:#fff; text-decoration:underline;">contact@haistudio.com</a>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Updates</h5>
+                    <p style="margin-bottom:10px;">Subscribe to our journal.</p>
+                    <input type="email" placeholder="Email address" class="newsletter-box">
+                </div>
+                <div class="footer-col">
+                    <h5>Social</h5>
+                    <p style="line-height: 2;">
+                        <a href="https://www.instagram.com" target="_blank">Instagram ↗</a><br>
+                        <a href="https://www.linkedin.com" target="_blank">LinkedIn ↗</a><br>
+                        <a href="https://weixin.qq.com" target="_blank">WeChat ↗</a>
+                    </p>
+                </div>
+            </div>
+            <div style="margin-top: 40px; color: #444;">
+                &copy; 2025 HAI studio. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
